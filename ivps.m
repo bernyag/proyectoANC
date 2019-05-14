@@ -14,7 +14,7 @@ function [t,y] = ivps(f, t0, tf, y0, h, solver)
     t = t0:h:tf;
     %y = zeros(size(t)); este era para solo vector ahora queremos matriz
     y = zeros(length(y0),  length(t));
-    y(:, 1)=y0;
+    y(:, 1:3)=y0;
     
     for i = 1:length(t)-1
         y(:,i+1) = y(:,i) + h*fhandle(f,t(i), y(:,i), h);
